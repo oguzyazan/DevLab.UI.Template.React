@@ -1,4 +1,4 @@
 import { combineReducers } from "redux";
-import { loginReducer } from "./Auth";
+import { loginReducer, registerReducer } from "./Auth";
 
-export default combineReducers({ loginReducer });
+export default combineReducers({ loginReducer, registerReducer });

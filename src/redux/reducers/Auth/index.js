@@ -1,4 +1,4 @@
-import { LOGIN_REQUEST, LOGIN_RESPONSE } from "../../constants";
+import { LOGIN_REQUEST, LOGIN_RESPONSE, REGISTER_REQUEST, REGISTER_RESPONSE } from "../../constants";
 
 const loginReducer = (state = {}, action) => {
   switch (action.type) {
@@ -10,4 +10,15 @@ const loginReducer = (state = {}, action) => {
       return state;
   }
 };
-export { loginReducer };
+
+const registerReducer = (state = {}, action) => {
+  switch (action.type) {
+    case REGISTER_REQUEST:
+      return { loading: true, requestBody: action.requestBody };
+    case REGISTER_RESPONSE:
+      return { response: action.response, loading: false };
+    default:
+      return state;
+  }
+};
+export { loginReducer, registerReducer };
