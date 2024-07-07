@@ -7,6 +7,7 @@ import configureStore from "./redux/store";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import Index from "./containers/index";
 import Login from "./containers/Auth/Login";
 import Register from "./containers/Auth/Register";
 import "./assets/styles/scss/hope-ui.scss";
@@ -22,6 +23,7 @@ root.render(
     <React.StrictMode>
       <BrowserRouter>
         <Routes>
+          <Route path="/" exact element={<Index />} />
           <Route path="/auth/login" exact element={<Login />} />
           <Route path="/auth/register" exact element={<Register />} />
           <Route path="/template/list" exact element={<List />} />
