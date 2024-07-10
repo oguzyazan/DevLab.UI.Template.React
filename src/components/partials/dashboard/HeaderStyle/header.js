@@ -25,14 +25,11 @@ import avatars6 from '../../../../assets/images/avatars/avtar_5.png'
 import Logo from '../../components/logo'
 
 // Redux Selector / Action
-import { useSelector } from 'react-redux';
-
 // Import selectors & action from setting store
-import * as SettingSelector from '../../../../store/setting/selectors'
 
 const Header = memo((props) => {
-    const navbarHide = useSelector(SettingSelector.navbar_show); // array
-    const headerNavbar = useSelector(SettingSelector.header_navbar)
+    const navbarHide = []; // array
+    const headerNavbar = "default"
     useEffect(() => {
         // navbarstylemode
         if (headerNavbar === 'navs-sticky' || headerNavbar === 'nav-glass') {
