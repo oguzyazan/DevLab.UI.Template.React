@@ -1,10 +1,11 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
+const { APIHelper } = require('../util/helpers');
 
 module.exports = function(app) {
   app.use(
     '/user',
     createProxyMiddleware({
-      target: 'http://localhost:3500',
+      target: APIHelper.baseUrl,
       changeOrigin: true,
     })
   );
