@@ -7,7 +7,6 @@ import configureStore from "./redux/store";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import Index from "./containers/index";
 import Login from "./containers/Auth/Login";
 import Register from "./containers/Auth/Register";
 import "./assets/styles/scss/hope-ui.scss";
@@ -16,6 +15,9 @@ import "./assets/styles/scss/dark.scss";
 import "./assets/styles/scss/rtl.scss";
 import "./assets/styles/scss/customizer.scss";
 import List from "./containers/Template/List";
+import Default from "./layouts/Default";
+import Dashboard from "./containers/Template/Dashboard";
+import Blank from "./containers/Template/Blank";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -23,11 +25,14 @@ root.render(
     <React.StrictMode>
       <BrowserRouter>
         <Routes>
-          <Route path="/" exact element={<Index />} />
           <Route path="/auth/login" exact element={<Login />} />
           <Route path="/auth/register" exact element={<Register />} />
-          <Route path="/template/list" exact element={<List />} />
-          <Route path="*" element={<Navigate to="/auth/login" replace />} />
+          <Route element={<Default/>}>
+            <Route path="/template/dashboard" exact element={<Dashboard />} />
+            <Route path="/template/list" exact element={<List />} />
+            <Route path="/template/blank" exact element={<Blank />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/template/dashboard" replace />} />
         </Routes>
       </BrowserRouter>
     </React.StrictMode>
