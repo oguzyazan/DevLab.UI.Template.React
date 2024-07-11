@@ -21,6 +21,8 @@ import Blank from "./containers/Template/Blank";
 import Maintenance from "./containers/Errors/Maintenance";
 import Error500 from "./containers/Errors/Error500";
 import Error404 from "./containers/Errors/Error404";
+import UserList from "./containers/User/user-list";
+import UserAdd from "./containers/User/user-add";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -37,6 +39,8 @@ root.render(
             <Route path="/template/dashboard" exact element={<Dashboard />} />
             <Route path="/template/list" exact element={<List />} />
             <Route path="/template/blank" exact element={<Blank />} />
+            <Route path="/user/user-list" exact element={<UserList />} />
+            <Route path="/user/user-add" exact element={<UserAdd />} />
           </Route>
           <Route
             path="*"
