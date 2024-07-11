@@ -18,6 +18,9 @@ import List from "./containers/Template/List";
 import Default from "./layouts/Default";
 import Dashboard from "./containers/Template/Dashboard";
 import Blank from "./containers/Template/Blank";
+import Maintenance from "./containers/Errors/Maintenance";
+import Error500 from "./containers/Errors/Error500";
+import Error404 from "./containers/Errors/Error404";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -25,14 +28,20 @@ root.render(
     <React.StrictMode>
       <BrowserRouter>
         <Routes>
+          <Route path="/errors/error404" exact element={<Error404 />} />
+          <Route path="/errors/error500" exact element={<Error500 />} />
+          <Route path="/errors/maintenance" exact element={<Maintenance />} />
           <Route path="/auth/login" exact element={<Login />} />
           <Route path="/auth/register" exact element={<Register />} />
-          <Route element={<Default/>}>
+          <Route element={<Default />}>
             <Route path="/template/dashboard" exact element={<Dashboard />} />
             <Route path="/template/list" exact element={<List />} />
             <Route path="/template/blank" exact element={<Blank />} />
           </Route>
-          <Route path="*" element={<Navigate to="/template/dashboard" replace />} />
+          <Route
+            path="*"
+            element={<Navigate to="/template/dashboard" replace />}
+          />
         </Routes>
       </BrowserRouter>
     </React.StrictMode>
